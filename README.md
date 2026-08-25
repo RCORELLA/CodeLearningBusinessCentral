@@ -9,14 +9,10 @@ Each folder is a standalone exercise (a self-contained AL project, with its own 
 | Exercise | Description | Video |
 |---|---|---|
 | [ABCIsolate](./ABCIsolate) | How to store API keys and passwords securely using Isolated Storage and SecretText | [YouTube](https://www.youtube.com/watch?v=zKk-W6QoS7E) |
-<<<<<<< HEAD
 | [Basic Scaffolder](./Basic%20Scaffolder) | Skills and prompts that run BC Quality against your AL code and turn the results into a readable HTML report | [YouTube](https://youtu.be/aQG67quBHHQ) |
 
 *(More exercises will be added here over time.)*
-=======
 
-*(More exercises will be added here over time, such as Scaffolder.)*
->>>>>>> 98faf1ad3efb44ae29f6d7fe3d929511635c2154
 
 ## How to use these exercises
 
