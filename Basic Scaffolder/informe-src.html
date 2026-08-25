@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Informe BCQuality</title>
+<style>
+  :root {
+    --surface-0: #f6f5f1; --surface-1: #ffffff; --border: #e5e3db;
+    --text-primary: #1c1c1a; --text-secondary: #5f5e5a; --text-muted: #888780; --accent: #0c447c;
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; padding:2.5rem 1.5rem; background:var(--surface-0); font-family:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif; color:var(--text-primary); line-height:1.6; }
+  .wrap { max-width:760px; margin:0 auto; }
+  .header { background:var(--surface-1); border:1px solid var(--border); border-radius:14px; padding:1.5rem 1.75rem; margin-bottom:1rem; }
+  .header-top { display:flex; justify-content:space-between; align-items:flex-start; gap:1rem; flex-wrap:wrap; }
+  .header h1 { font-size:19px; font-weight:600; margin:0 0 4px; word-break:break-word; }
+  .header .subtitle { font-size:13px; color:var(--text-secondary); margin:0; }
+  .outcome-pill { font-size:12px; font-weight:600; padding:5px 12px; border-radius:999px; background:#eaf3de; color:#27500a; white-space:nowrap; }
+  .stats { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-top:1.25rem; }
+  .stat { background:var(--surface-0); border-radius:10px; padding:0.7rem 0.85rem; }
+  .stat .num { font-size:22px; font-weight:600; display:block; }
+  .stat .label { font-size:12px; color:var(--text-secondary); }
+  .file-index { background:var(--surface-1); border:1px solid var(--border); border-radius:14px; padding:0.5rem; margin-bottom:1.5rem; }
+  .file-index-item { display:flex; justify-content:space-between; align-items:center; padding:0.55rem 0.85rem; border-radius:8px; text-decoration:none; color:var(--text-primary); font-size:13px; }
+  .file-index-item:hover { background:var(--surface-0); }
+  .file-index-count { font-size:11px; font-weight:600; color:var(--text-secondary); background:var(--surface-0); border:1px solid var(--border); border-radius:999px; padding:1px 8px; }
+  .file-divider { height:1.5rem; }
+  .domain-section { margin-bottom:1.5rem; }
+  .domain-section h3 { font-size:14px; font-weight:600; text-transform:lowercase; margin:0 0 0.6rem; display:flex; align-items:center; gap:6px; }
+  .domain-section .count { font-size:11px; font-weight:600; color:var(--text-secondary); background:var(--surface-1); border:1px solid var(--border); border-radius:999px; padding:1px 8px; margin-left:2px; }
+  .finding { background:var(--surface-1); border:1px solid var(--border); border-radius:10px; padding:0.85rem 1rem; margin-bottom:8px; }
+  .finding-head { display:flex; justify-content:space-between; align-items:center; gap:8px; flex-wrap:wrap; }
+  .finding-domain { font-size:12px; font-weight:600; color:var(--text-secondary); }
+  .badge { font-size:11px; font-weight:600; padding:3px 9px; border-radius:6px; white-space:nowrap; }
+  .badge-agent { background:var(--surface-0); color:var(--text-secondary); }
+  .finding-summary { font-size:14px; margin:8px 0 6px; }
+  .finding-summary.muted { color:var(--text-secondary); font-style:italic; }
+  .finding-refs { display:flex; flex-wrap:wrap; gap:6px; margin-top:4px; }
+  .finding-refs code { font-size:11.5px; background:var(--surface-0); border:1px solid var(--border); border-radius:5px; padding:2px 7px; color:var(--accent); font-family:"SFMono-Regular",Consolas,monospace; }
+  .finding-muted { opacity:0.85; }
+  .suppressed-section h3 { color:var(--text-secondary); }
+  .footer { text-align:center; font-size:12px; color:var(--text-muted); margin-top:2rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  
+  <div class="header">
+    <div class="header-top">
+      <div>
+        <h1>Revisión BCQuality &mdash; src/</h1>
+        <p class="subtitle">9 archivos revisados</p>
+      </div>
+      <span class="outcome-pill">7 con hallazgos</span>
+    </div>
+    <div class="stats">
+      <div class="stat"><span class="num">13</span><span class="label">hallazgos totales</span></div>
+      <div class="stat"><span class="num">12</span><span class="label">confianza alta</span></div>
+      <div class="stat"><span class="num">13</span><span class="label">con cita</span></div>
+      <div class="stat"><span class="num">2</span><span class="label">limpios</span></div>
+    </div>
+  </div>
+  <div class="file-index">
+    
+      <a href="#file-0" class="file-index-item">
+        <span>src/Equipment/RFLEquipmentDamageLog.Page.al</span>
+        <span class="file-index-count">2</span>
+      </a>
+      <a href="#file-1" class="file-index-item">
+        <span>src/Equipment/RFLEquipmentDamageLog.Table.al</span>
+        <span class="file-index-count">0</span>
+      </a>
+      <a href="#file-2" class="file-index-item">
+        <span>src/Equipment/RFLEquipmentDamageSeverity.Enum.al</span>
+        <span class="file-index-count">0</span>
+      </a>
+      <a href="#file-3" class="file-index-item">
+        <span>src/Equipment/RFLMaintenanceLog.Page.al</span>
+        <span class="file-index-count">2</span>
+      </a>
+      <a href="#file-4" class="file-index-item">
+        <span>src/Equipment/RFLMaintenanceLog.Table.al</span>
+        <span class="file-index-count">1</span>
+      </a>
+      <a href="#file-5" class="file-index-item">
+        <span>src/Lab3/Enum54100.RFLEquipmentStatus.al</span>
+        <span class="file-index-count">1</span>
+      </a>
+      <a href="#file-6" class="file-index-item">
+        <span>src/Lab3/Pag50100.RFLEquipment.al</span>
+        <span class="file-index-count">2</span>
+      </a>
+      <a href="#file-7" class="file-index-item">
+        <span>src/Lab3/Pag54101.RFLEquipmentCard.al</span>
+        <span class="file-index-count">2</span>
+      </a>
+      <a href="#file-8" class="file-index-item">
+        <span>src/Lab3/Tab50100.RFLEquipment.al</span>
+        <span class="file-index-count">3</span>
+      </a>
+  </div>
+  
+  <div class="header" id="file-0">
+    <div class="header-top">
+      <div>
+        <h1>src/Equipment/RFLEquipmentDamageLog.Page.al</h1>
+        <p class="subtitle">Revisión BCQuality &middot; capas: microsoft, community, custom</p>
+      </div>
+      <span class="outcome-pill">Revisión completa</span>
+    </div>
+    <div class="stats">
+      <div class="stat"><span class="num">2</span><span class="label">hallazgos</span></div>
+      <div class="stat"><span class="num">2</span><span class="label">con cita</span></div>
+      <div class="stat"><span class="num">0</span><span class="label">del agente</span></div>
+      <div class="stat"><span class="num">0</span><span class="label">suprimidos</span></div>
+    </div>
+  </div>
+  
+    <section class="domain-section">
+      <h3>&#127912; ux <span class="count">1</span></h3>
+      
+    <div class="finding">
+      <div class="finding-head">
+        <span class="finding-domain">&#127912; ux</span>
+        <span class="badge" style="background:#fcebeb;color:#791f1f">confianza alta</span>
+      </div>
+      <p class="finding-summary">Es una página de historial (log de daños con "Entry No." autoincremental y "Damage Date") sin SourceTableView, así que el orden por defecto es el más antiguo primero; en una lista de log el uso principal es revisar la actividad reciente. Añadir SourceTableView = sorting("Entry No.") order(descending); para ordenar de más reciente a más antiguo.</p>
+      <div class="finding-refs"><code>microsoft/knowledge/ui/default-descending-sort-on-historical-pages.md</code></div>
+    </div>
+    </section>
+    <section class="domain-section">
+      <h3>&#9997; style <span class="count">1</span></h3>
+      
+    <div class="finding">
+      <div class="finding-head">
+        <span class="finding-domain">&#9997; style</span>
+        <span class="badge" style="background:#fcebeb;color:#791f1f">confianza alta</span>
+      </div>
+      <p class="finding-summary">Los 8 controles de campo del repeater no declaran ToolTip y los campos fuente de la tabla "RFL Equipment Damage Log" tampoco, así que no hay tooltip ni inline ni heredado (CodeCop AA0218). Añadir ToolTip = 'Specifies ...' a cada campo, preferiblemente en la tabla para heredarlo.</p>
+      <div class="finding-refs"><code>microsoft/knowledge/style/tooltip-required-on-page-fields.md</code><code>microsoft/knowledge/ui/bound-page-field-inherits-source-field-tooltip.md</code></div>
+    </div>
+    </section>
+  <div class="file-divider"></div>
+  <div class="header" id="file-1">
+    <div class="header-top">
+      <div>
+        <h1>src/Equipment/RFLEquipmentDamageLog.Table.al</h1>
+        <p class="subtitle">Revisión BCQuality &middot; capas: microsoft, community, custom</p>
+      </div>
+      <span class="outcome-pill">Revisión completa</span>
+    </div>
+    <div class="stats">
+      <div class="stat"><span class="num">0</span><span class="label">hallazgos</span></div>
+      <div class="stat"><span class="num">0</span><span class="label">con cita</span></div>
+      <div class="stat"><span class="num">0</span><span class="label">del agente</span></div>
+      <div class="stat"><span class="num">0</span><span class="label">suprimidos</span></div>
+    </div>
+  </div>
+  <p style="color:var(--text-secondary)">Sin hallazgos.</p>
+  <div class="file-divider"></div>
+  <div class="header" id="file-2">
+    <div class="header-top">
+      <div>
+        <h1>src/Equipment/RFLEquipmentDamageSeverity.Enum.al</h1>
+        <p class="subtitle">Revisión BCQuality &middot; capas: microsoft, community, custom</p>
+      </div>
+      <span class="outcome-pill">Revisión completa</span>
+    </div>
+    <div class="stats">
+      <div class="stat"><span class="num">0</span><span class="label">hallazgos</span></div>
+      <div class="stat"><span class="num">0</span><span class="label">con cita</span></div>
+      <div class="stat"><span class="num">0</span><span class="label">del agente</span></div>
+      <div class="stat"><span class="num">0</span><span class="label">suprimidos</span></div>
+    </div>
+  </div>
+  <p style="color:var(--text-secondary)">Sin hallazgos.</p>
+  <div class="file-divider"></div>
+  <div class="header" id="file-3">
+    <div class="header-top">
+      <div>
+        <h1>src/Equipment/RFLMaintenanceLog.Page.al</h1>
+        <p class="subtitle">Revisión BCQuality &middot; capas: microsoft, community, custom</p>
+      </div>
+      <span class="outcome-pill">Revisión completa</span>
+    </div>
+    <div class="stats">
+      <div class="stat"><span class="num">2</span><span class="label">hallazgos</span></div>
+      <div class="stat"><span class="num">2</span><span class="label">con cita</span></div>
+      <div class="stat"><span class="num">0</span><span class="label">del agente</span></div>
+      <div class="stat"><span class="num">0</span><span class="label">suprimidos</span></div>
+    </div>
+  </div>
+  
+    <section class="domain-section">
+      <h3>&#127912; ux <span class="count">1</span></h3>
+      
+    <div class="finding">
+      <div class="finding-head">
+        <span class="finding-domain">&#127912; ux</span>
+        <span class="badge" style="background:#fcebeb;color:#791f1f">confianza alta</span>
+      </div>
+      <p class="finding-summary">Es una página de historial (log de mantenimiento con "Entry No." autoincremental y "Maintenance Date") sin SourceTableView, así que el orden por defecto es el más antiguo primero; en una lista de log el uso principal es revisar la actividad reciente. Añadir SourceTableView = sorting("Entry No.") order(descending);</p>
+      <div class="finding-refs"><code>microsoft/knowledge/ui/default-descending-sort-on-historical-pages.md</code></div>
+    </div>
+    </section>
+    <section class="domain-section">
+      <h3>&#9997; style <span class="count">1</span></h3>
+      
+    <div class="finding">
+      <div class="finding-head">
+        <span class="finding-domain">&#9997; style</span>
+        <span class="badge" style="background:#fcebeb;color:#791f1f">confianza alta</span>
+      </div>
+      <p class="finding-summary">Los 6 controles de campo del repeater no declaran ToolTip y los campos fuente de la tabla "RFL Maintenance Log" tampoco, así que no hay tooltip ni inline ni heredado (CodeCop AA0218). Añadir ToolTip = 'Specifies ...' a cada campo, preferiblemente en la tabla para heredarlo.</p>
+      <div class="finding-refs"><code>microsoft/knowledge/style/tooltip-required-on-page-fields.md</code><code>microsoft/knowledge/ui/bound-page-field-inherits-source-field-tooltip.md</code></div>
+    </div>
+    </section>
+  <div class="file-divider"></div>
+  <div class="header" id="file-4">
+    <div class="header-top">
+      <div>
+        <h1>src/Equipment/RFLMaintenanceLog.Table.al</h1>
+        <p class="subtitle">Revisión BCQuality &middot; capas: microsoft, community, custom</p>
+      </div>
+      <span class="outcome-pill">Revisión completa</span>
+    </div>
+    <div class="stats">
+      <div class="stat"><span class="num">1</span><span class="label">hallazgos</span></div>
+      <div class="stat"><span class="num">1</span><span class="label">con cita</span></div>
+      <div class="stat"><span class="num">0</span><span class="label">del agente</span></div>
+      <div class="stat"><span class="num">0</span><span class="label">suprimidos</span></div>
+    </div>
+  </div>
+  
+    <section class="domain-section">
+      <h3>&#128272; privacy <span class="count">1</span></h3>
+      
+    <div class="finding">
+      <div class="finding-head">
+        <span class="finding-domain">&#128272; privacy</span>
+        <span class="badge" style="background:#fcebeb;color:#791f1f">confianza alta</span>
+      </div>
+      <p class="finding-summary">Los campos Normal de la tabla ("Entry No.", "Equipment No.", "Maintenance Date", Description, Cost) no declaran DataClassification a nivel de campo; el DataClassification = CustomerContent a nivel de tabla no satisface el requisito por campo (AppSourceCop AS0016) y los campos quedan ToBeClassified. Repetir DataClassification en cada campo Normal (CustomerContent; SystemMetadata es adecuado para "Entry No." autoincremental).</p>
+      <div class="finding-refs"><code>microsoft/knowledge/privacy/table-level-data-classification-cascades.md</code></div>
+    </div>
+    </section>
+  <div class="file-divider"></div>
+  <div class="header" id="file-5">
+    <div class="header-top">
+      <div>
+        <h1>src/Lab3/Enum54100.RFLEquipmentStatus.al</h1>
+        <p class="subtitle">Revisión BCQuality &middot; capas: microsoft, community, custom</p>
+      </div>
+      <span class="outcome-pill">Revisión completa</span>
+    </div>
+    <div class="stats">
+      <div class="stat"><span class="num">1</span><span class="label">hallazgos</span></div>
+      <div class="stat"><span class="num">1</span><span class="label">con cita</span></div>
+      <div class="stat"><span class="num">0</span><span class="label">del agente</span></div>
+      <div class="stat"><span class="num">0</span><span class="label">suprimidos</span></div>
+    </div>
+  </div>
+  
+    <section class="domain-section">
+      <h3>&#9997; style <span class="count">1</span></h3>
+      
+    <div class="finding">
+      <div class="finding-head">
+        <span class="finding-domain">&#9997; style</span>
+        <span class="badge" style="background:#fcebeb;color:#791f1f">confianza alta</span>
+      </div>
+      <p class="finding-summary">El nombre de archivo Enum54100.RFLEquipmentStatus.al no sigue el patrón &lt;ObjectName&gt;.&lt;ObjectType&gt;.al; debería ser RFLEquipmentStatus.Enum.al (PascalCase, sin prefijo de tipo ni ID embebido).</p>
+      <div class="finding-refs"><code>microsoft/knowledge/style/file-name-object-type-pattern.md</code></div>
+    </div>
+    </section>
+  <div class="file-divider"></div>
+  <div class="header" id="file-6">
+    <div class="header-top">
+      <div>
+        <h1>src/Lab3/Pag50100.RFLEquipment.al</h1>
+        <p class="subtitle">Revisión BCQuality &middot; capas: microsoft, community, custom</p>
+      </div>
+      <span class="outcome-pill">Revisión completa</span>
+    </div>
+    <div class="stats">
+      <div class="stat"><span class="num">2</span><span class="label">hallazgos</span></div>
+      <div class="stat"><span class="num">2</span><span class="label">con cita</span></div>
+      <div class="stat"><span class="num">0</span><span class="label">del agente</span></div>
+      <div class="stat"><span class="num">0</span><span class="label">suprimidos</span></div>
+    </div>
+  </div>
+  
+    <section class="domain-section">
+      <h3>&#9997; style <span class="count">2</span></h3>
+      
+    <div class="finding">
+      <div class="finding-head">
+        <span class="finding-domain">&#9997; style</span>
+        <span class="badge" style="background:#fcebeb;color:#791f1f">confianza alta</span>
+      </div>
+      <p class="finding-summary">Los 6 controles de campo del repeater no declaran ToolTip y los campos fuente de la tabla "RFL Equipment" tampoco lo tienen, así que no hay tooltip ni inline ni heredado: el hover queda vacío y el lector de pantalla no tiene nada que anunciar (CodeCop AA0218, frecuentemente rebajado o desactivado en rulesets). Añadir ToolTip = 'Specifies ...' a cada campo, idealmente en los campos de la tabla para que se herede.</p>
+      <div class="finding-refs"><code>microsoft/knowledge/style/tooltip-required-on-page-fields.md</code><code>microsoft/knowledge/ui/bound-page-field-inherits-source-field-tooltip.md</code></div>
+    </div>
+    <div class="finding">
+      <div class="finding-head">
+        <span class="finding-domain">&#9997; style</span>
+        <span class="badge" style="background:#fcebeb;color:#791f1f">confianza alta</span>
+      </div>
+      <p class="finding-summary">El nombre de archivo Pag50100.RFLEquipment.al no sigue el patrón &lt;ObjectName&gt;.&lt;ObjectType&gt;.al; debería ser RFLEquipment.Page.al. Además el ID embebido en el nombre (50100) no coincide con el ID real del objeto (54100).</p>
+      <div class="finding-refs"><code>microsoft/knowledge/style/file-name-object-type-pattern.md</code></div>
+    </div>
+    </section>
+  <div class="file-divider"></div>
+  <div class="header" id="file-7">
+    <div class="header-top">
+      <div>
+        <h1>src/Lab3/Pag54101.RFLEquipmentCard.al</h1>
+        <p class="subtitle">Revisión BCQuality &middot; capas: microsoft, community, custom</p>
+      </div>
+      <span class="outcome-pill">Revisión completa</span>
+    </div>
+    <div class="stats">
+      <div class="stat"><span class="num">2</span><span class="label">hallazgos</span></div>
+      <div class="stat"><span class="num">2</span><span class="label">con cita</span></div>
+      <div class="stat"><span class="num">0</span><span class="label">del agente</span></div>
+      <div class="stat"><span class="num">0</span><span class="label">suprimidos</span></div>
+    </div>
+  </div>
+  
+    <section class="domain-section">
+      <h3>&#9997; style <span class="count">2</span></h3>
+      
+    <div class="finding">
+      <div class="finding-head">
+        <span class="finding-domain">&#9997; style</span>
+        <span class="badge" style="background:#fcebeb;color:#791f1f">confianza alta</span>
+      </div>
+      <p class="finding-summary">Los 8 controles de campo del grupo General no declaran ToolTip y los campos fuente de la tabla "RFL Equipment" tampoco, así que no hay tooltip ni inline ni heredado (CodeCop AA0218). Añadir ToolTip = 'Specifies ...' a cada campo, preferiblemente en la tabla para heredarlo en todas las páginas.</p>
+      <div class="finding-refs"><code>microsoft/knowledge/style/tooltip-required-on-page-fields.md</code><code>microsoft/knowledge/ui/bound-page-field-inherits-source-field-tooltip.md</code></div>
+    </div>
+    <div class="finding">
+      <div class="finding-head">
+        <span class="finding-domain">&#9997; style</span>
+        <span class="badge" style="background:#fcebeb;color:#791f1f">confianza alta</span>
+      </div>
+      <p class="finding-summary">El nombre de archivo Pag54101.RFLEquipmentCard.al no sigue el patrón &lt;ObjectName&gt;.&lt;ObjectType&gt;.al; debería ser RFLEquipmentCard.Page.al (PascalCase, sin prefijo de tipo ni ID embebido).</p>
+      <div class="finding-refs"><code>microsoft/knowledge/style/file-name-object-type-pattern.md</code></div>
+    </div>
+    </section>
+  <div class="file-divider"></div>
+  <div class="header" id="file-8">
+    <div class="header-top">
+      <div>
+        <h1>src/Lab3/Tab50100.RFLEquipment.al</h1>
+        <p class="subtitle">Revisión BCQuality &middot; capas: microsoft, community, custom</p>
+      </div>
+      <span class="outcome-pill">Revisión completa</span>
+    </div>
+    <div class="stats">
+      <div class="stat"><span class="num">3</span><span class="label">hallazgos</span></div>
+      <div class="stat"><span class="num">3</span><span class="label">con cita</span></div>
+      <div class="stat"><span class="num">0</span><span class="label">del agente</span></div>
+      <div class="stat"><span class="num">0</span><span class="label">suprimidos</span></div>
+    </div>
+  </div>
+  
+    <section class="domain-section">
+      <h3>&#128272; privacy <span class="count">1</span></h3>
+      
+    <div class="finding">
+      <div class="finding-head">
+        <span class="finding-domain">&#128272; privacy</span>
+        <span class="badge" style="background:#fcebeb;color:#791f1f">confianza alta</span>
+      </div>
+      <p class="finding-summary">Los 8 campos Normal de la tabla ("No.", Description, "Equipment Type", "Serial No.", "Acquisition Date", "Daily Rate", Status, "Last Maintenance Date") no declaran DataClassification a nivel de campo; el DataClassification = CustomerContent a nivel de tabla no satisface el requisito por campo (AppSourceCop AS0016). Repetir DataClassification = CustomerContent en cada campo Normal.</p>
+      <div class="finding-refs"><code>microsoft/knowledge/privacy/table-level-data-classification-cascades.md</code></div>
+    </div>
+    </section>
+    <section class="domain-section">
+      <h3>&#128193; data-modeling <span class="count">1</span></h3>
+      
+    <div class="finding">
+      <div class="finding-head">
+        <span class="finding-domain">&#128193; data-modeling</span>
+        <span class="badge" style="background:#faeeda;color:#633806">confianza media</span>
+      </div>
+      <p class="finding-summary">RFL Equipment es una tabla maestra con clave primaria "No." Code[20] pero sin campo "No. Series" ni asignación desde una serie numeradora en OnInsert (solo NotBlank = true, entrada manual). El patrón estándar de maestros BC asigna "No." en OnInsert desde la serie configurada en la tabla de setup cuando está en blanco. Confianza media: puede ser una decisión deliberada y el arreglo requiere una tabla de setup y una No. Series que no existen en el repo.</p>
+      <div class="finding-refs"><code>microsoft/knowledge/data-modeling/master-table-no-from-number-series-in-oninsert.md</code></div>
+    </div>
+    </section>
+    <section class="domain-section">
+      <h3>&#9997; style <span class="count">1</span></h3>
+      
+    <div class="finding">
+      <div class="finding-head">
+        <span class="finding-domain">&#9997; style</span>
+        <span class="badge" style="background:#fcebeb;color:#791f1f">confianza alta</span>
+      </div>
+      <p class="finding-summary">El nombre de archivo Tab50100.RFLEquipment.al no sigue el patrón &lt;ObjectName&gt;.&lt;ObjectType&gt;.al; debería ser RFLEquipment.Table.al (PascalCase, sin prefijo de tipo ni ID embebido) para que búsquedas y tooling localicen el objeto sin parsear AL.</p>
+      <div class="finding-refs"><code>microsoft/knowledge/style/file-name-object-type-pattern.md</code></div>
+    </div>
+    </section>
+  
+  <p class="footer">Generado a partir de la salida de bcquality-reviewer &middot; microsoft/BCQuality</p>
+</div>
+</body>
+</html>
